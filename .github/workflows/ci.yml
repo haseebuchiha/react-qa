@@ -26,6 +26,22 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Install Dependencies
+      #running npm ci is generally faster than running npm install 
+      run: |
+        cd my-app
+        npm ci
+    - name: Build the app
+      run: |
+        cd my-app
+        npm build
+    - name: Run component tests
+      run: |
+        cd my-app
+        npm run test
+    - name: Start the App
+      run: |
+        cd my-app
+        npm start &
+        npx wait-on --timeout 60000 
+      
