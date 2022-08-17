@@ -33,7 +33,7 @@ jobs:
     - name: Build the app
       run: |
         cd my-app
-        npm build
+        npm run build
     - name: Run component tests
       run: |
         cd my-app
