@@ -29,17 +29,17 @@ jobs:
       #running npm ci is generally faster than running npm install
       run: |
         cd my-app
-        yarn ci
+        npm ci
     - name: Build the app
       run: |
         cd my-app
-        yarn build
+        npm build
     - name: Run component tests
       run: |
         cd my-app
-        yarn run test
+        npm run test
     - name: Start the App
       run: |
         cd my-app
-        yarn start &
+        npm start &
         npx wait-on --timeout 60000
